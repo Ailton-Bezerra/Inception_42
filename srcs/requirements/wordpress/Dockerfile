@@ -18,7 +18,8 @@ RUN apk update && apk add --no-cache \
     php-gd \
     wget \
     curl \
-    tar
+    tar \
+    mariadb-client
 
 # install wp-cli
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \

@@ -7,8 +7,9 @@ WP_PATH="/var/www/wordpress"
 # 1. Aguardar MariaDB subir
 # -----------------------------------------------
 echo ">> Aguardando o MariaDB ficar acessível..."
-while ! mariadb -h"$MYSQL_HOST" -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" "$MYSQL_DATABASE" --silent; do
-    sleep 1
+while ! mariadb -h"$MYSQL_HOST" -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" "$MYSQL_DATABASE" --silent -e "SELECT 1;" >/dev/null 2>&1; do
+    echo ">> Aguardando MariaDB... ($MYSQL_HOST)"
+    sleep 2
 done
 echo ">> MariaDB conectado com sucesso!"
 
