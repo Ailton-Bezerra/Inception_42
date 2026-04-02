@@ -1,0 +1,72 @@
+# Version control
+.git
+.gitignore
+.gitattributes
+
+# IDEs and editors
+.vscode
+.idea
+*.swp
+*.swo
+*~
+.DS_Store
+.env.local
+.env.*.local
+
+# Node/npm
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+.pytest_cache
+.python-version
+venv/
+env/
+
+# Package managers/Build
+.gradle
+.maven
+*.egg-info
+dist/
+build/
+
+# CI/CD
+.github
+.gitlab-ci.yml
+.travis.yml
+Jenkinsfile
+
+# Documentation
+README.md
+*.md
+docs/
+
+# Secrets and credentials
+secrets/
+.env
+*.key
+*.pem
+*.crt
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Temporary files
+*.tmp
+*.log
+*.pid
+
+# Docker-specific
+.dockerfile
+Dockerfile.dev
+docker-compose.override.yml
+
+# Tests
+tests/
+.test/
+coverage/
