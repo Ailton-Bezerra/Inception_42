@@ -26,6 +26,13 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
     chmod +x wp-cli.phar && \
     mv wp-cli.phar /usr/local/bin/wp
 
+# ver qual a necessidade real desses dois e se esta de acordo com o que foi pedido
+# Configure PHP memory limit
+RUN echo "memory_limit = 512M" > /etc/php82/conf.d/wordpress.ini
+
+# Configure PHP-FPM to listen on all interfaces
+RUN sed -i 's/listen = 127.0.0.1:9000/listen = 0.0.0.0:9000/' /etc/php82/php-fpm.d/www.conf
+
 # creat worpress directory
 RUN mkdir -p /var/www/wordpress && \
     chmod -R 755 /var/www/wordpress && \

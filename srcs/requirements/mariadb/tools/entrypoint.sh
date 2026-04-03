@@ -29,4 +29,4 @@ else
 fi
 
 echo "[INFO] Iniciando mysqld..."
-exec mysqld --user=mysql --console
+exec mysqld --user=mysql --console --bind-address=0.0.0.0 --port=3306 --skip-networking=0
