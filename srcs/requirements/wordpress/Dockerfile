@@ -38,7 +38,6 @@ RUN mkdir -p /var/www/wordpress && \
     chmod -R 755 /var/www/wordpress && \
     chown -R nobody:nobody /var/www/wordpress
 
-# 
 COPY ./tools/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
