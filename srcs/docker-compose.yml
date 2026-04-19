@@ -58,5 +58,3 @@ volumes:
 networks:
   inception:
     driver: bridge
-
-# Read the docker-compose.yml file. There musn't be 'network: host' in it or 'links:'. Otherwise, the evaluation ends now.
