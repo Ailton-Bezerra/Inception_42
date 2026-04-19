@@ -32,7 +32,7 @@ RUN sed -i 's/listen = 127.0.0.1:9000/listen = 0.0.0.0:9000/' /etc/php82/php-fpm
 # create wordpress directory
 RUN mkdir -p /var/www/wordpress && \
     chmod -R 755 /var/www/wordpress && \
-    chown -R www-data:www-data /var/www/wordpress
+    chown -R nobody:nobody /var/www/wordpress
 
 COPY ./tools/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
