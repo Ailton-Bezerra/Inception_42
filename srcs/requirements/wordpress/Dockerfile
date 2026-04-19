@@ -1,21 +1,21 @@
-FROM alpine:3.19
+FROM alpine:3.22
 
 # dependencies
 RUN apk add --no-cache \
-    php82 \
-    php82-fpm \
-    php82-mysqli \
-    php82-json \
-    php82-openssl \
-    php82-curl \
-    php82-dom \
-    php82-phar \
-    php82-iconv \
-    php82-mbstring \
-    php82-session \
-    php82-zip \
-    php82-xml \
-    php82-gd \
+    php \
+    php-fpm \
+    php-mysqli \
+    php-json \
+    php-openssl \
+    php-curl \
+    php-dom \
+    php-phar \
+    php-iconv \
+    php-mbstring \
+    php-session \
+    php-zip \
+    php-xml \
+    php-gd \
     wget \
     curl \
     tar \
@@ -27,7 +27,7 @@ RUN curl -L -o wp-cli.phar https://raw.githubusercontent.com/wp-cli/builds/gh-pa
     mv wp-cli.phar /usr/local/bin/wp
 
 # Configure PHP-FPM to listen on all interfaces
-RUN sed -i 's/listen = 127.0.0.1:9000/listen = 0.0.0.0:9000/' /etc/php82/php-fpm.d/www.conf
+RUN sed -i 's/listen = 127.0.0.1:9000/listen = 0.0.0.0:9000/' /etc/php83/php-fpm.d/www.conf
 
 # create wordpress directory
 RUN mkdir -p /var/www/wordpress && \

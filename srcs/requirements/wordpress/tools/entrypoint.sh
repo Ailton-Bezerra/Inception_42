@@ -39,4 +39,4 @@ if ! wp core is-installed --path="$WP_PATH" --allow-root; then
 fi
 
 echo ">> WordPress ready, initializing PHP-FPM..."
-exec php-fpm82 -F
+exec php-fpm83 -F
