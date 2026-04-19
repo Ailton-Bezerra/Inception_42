@@ -3,15 +3,13 @@ set -e
 
 MYSQL_DIR="/var/lib/mysql"
 
-# init only in first run
 if [ ! -d "$MYSQL_DIR/mysql" ]; then
-    echo "[INFO] Inicializando banco de dados..."
+    echo ">> Initializing database..."
 
-    mysql_install_db --user=mysql --datadir="$MYSQL_DIR" > /dev/null
+    mariadb-install-db --user=mysql --datadir="$MYSQL_DIR" > /dev/null 2>&1
 
     mysqld --user=mysql --bootstrap << EOF
 USE mysql;
-FLUSH PRIVILEGES;
 
 ALTER USER 'root'@'localhost' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}';
 
@@ -23,10 +21,10 @@ GRANT ALL PRIVILEGES ON \`${MYSQL_DATABASE}\`.* TO '${MYSQL_USER}'@'%';
 FLUSH PRIVILEGES;
 EOF
 
-    echo "[INFO] Banco configurado."
+    echo ">> Database initialized."
 else
-    echo "[INFO] Banco já existe. Pulando inicialização."
+    echo ">> Database already initialized."
 fi
 
-echo "[INFO] Iniciando mysqld..."
+echo ">> Starting mysqld..."
 exec mysqld --user=mysql --console --bind-address=0.0.0.0 --port=3306 --skip-networking=0

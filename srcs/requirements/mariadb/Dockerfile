@@ -1,10 +1,9 @@
 FROM alpine:3.19
 
-RUN apk update && apk add --no-cache mariadb mariadb-client
+RUN apk add --no-cache mariadb mariadb-client
 
-RUN mkdir -p /run/mysqld && \
-    chmod 777 /run/mysqld && \
-    mkdir -p /var/lib/mysql
+RUN mkdir -p /run/mysqld /var/lib/mysql && \
+    chown -R mysql:mysql /run/mysqld /var/lib/mysql
 
 COPY tools/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh

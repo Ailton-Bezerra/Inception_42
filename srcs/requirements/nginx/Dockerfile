@@ -1,6 +1,6 @@
 FROM alpine:3.19
 
-RUN apk update && apk add --no-cache nginx openssl
+RUN apk add --no-cache nginx openssl
 
 RUN mkdir -p /etc/nginx/ssl /run/nginx
 
