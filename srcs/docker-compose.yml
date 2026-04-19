@@ -34,7 +34,6 @@ services:
     depends_on:
       - wordpress
     ports:
-      - "80:80"
       - "443:443"
     env_file: .env
     networks:
@@ -59,3 +58,5 @@ volumes:
 networks:
   inception:
     driver: bridge
+
+# Read the docker-compose.yml file. There musn't be 'network: host' in it or 'links:'. Otherwise, the evaluation ends now.

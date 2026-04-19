@@ -234,7 +234,6 @@ AI was utilized for the following aspects of this project:
    - Multi-stage builds if needed
    - Layer caching optimization
    - Alpine Linux usage for minimal image sizes
-   - Proper signal handling and process management
 
 3. **Entrypoint Script Development**: Helped design robust shell scripts with:
    - Proper error handling and exit codes
