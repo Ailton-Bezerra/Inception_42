@@ -10,7 +10,7 @@ DIRS = /home/ailbezer/data/mariadb /home/ailbezer/data/wordpress
 
 dirs:
 	@echo "$(YELLOW)Creating required directories...$(NC)"
-	@mkdir -p $(DIRS)
+	@sudo mkdir -p $(DIRS)
 	@echo "$(GREEN)✓ Directories ready$(NC)"
 
 up: dirs
