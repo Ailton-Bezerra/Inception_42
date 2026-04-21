@@ -36,9 +36,9 @@ Before running this project, ensure you have the following installed:
    ```bash
    sudo nano /etc/hosts  # or vi/vim
    # Add this line:
-   127.0.0.1  ailton.42.fr
+   127.0.0.1  ailbezer.42.fr
    ```
-   This maps the domain to your local machine. Replace `ailton.42.fr` with your actual domain if different.
+   This maps the domain to your local machine. Replace `ailbezer.42.fr` with your actual domain if different.
 
 3. **Configure environment variables**:
    The project requires environment variables to be set. Copy `.env.example` to `.env` and configure:
@@ -57,14 +57,14 @@ Before running this project, ensure you have the following installed:
    MYSQL_ROOT_PASSWORD=your_root_password
    
    # WordPress Site
-   WP_URL=https://ailton.42.fr
+   WP_URL=https://ailbezer.42.fr
    WP_TITLE=My Inception Site
    WP_ADMIN=inception  # Note: cannot contain "admin"
    WP_ADMIN_PASSWORD=your_secure_password
    WP_ADMIN_EMAIL=admin@example.com
    
    # Domain
-   DOMAIN_NAME=ailton.42.fr
+   DOMAIN_NAME=ailbezer.42.fr
    
    # Additional User (optional)
    WP_USER=editor
@@ -97,15 +97,15 @@ Before running this project, ensure you have the following installed:
 ### Accessing the Application
 
 Once the services are running:
-- **WordPress Admin**: Navigate to `https://ailton.42.fr/wp-admin/` (use the credentials from your `.env` file)
-- **Website**: Access `https://ailton.42.fr/`
+- **WordPress Admin**: Navigate to `https://ailbezer.42.fr/wp-admin/` (use the credentials from your `.env` file)
+- **Website**: Access `https://ailbezer.42.fr/`
 - **Database**: MariaDB runs on port 3306 (accessible from within the network)
 
 ### Troubleshooting
 
-- **Port conflicts**: If ports 80 or 443 are already in use, modify the port mappings in `docker-compose.yml`
+- **Port conflicts**: If port 443 are already in use, modify the port mappings in `docker-compose.yml`
 - **Database connection failures**: Ensure the database container has fully started before WordPress tries to connect (the entrypoint script handles this with retry logic)
-- **Volume permissions**: On Linux, ensure proper permissions on the `/home/ailton/data/` directories
+- **Volume permissions**: On Linux, ensure proper permissions on the `/home/ailbezer/data/` directories
 - **View logs**: Run `make logs` to see detailed output from all containers
 
 ## Project Description
@@ -179,7 +179,7 @@ This project demonstrates a multi-container application architecture where each 
 
 **Choice for this project**: Bind mounts are used with Docker volumes due to the following reasons:
 - Allows direct access to data files on the host system for backup and inspection
-- Specific paths (`/home/ailton/data/mariadb` and `/home/ailton/data/wordpress`) are known and management-friendly
+- Specific paths (`/home/ailbezer/data/mariadb` and `/home/ailbezer/data/wordpress`) are known and management-friendly
 - Suitable for development environments where host filesystem access is valuable
 - In production, pure Docker volumes would be preferred for better portability
 
@@ -190,8 +190,8 @@ This project demonstrates a multi-container application architecture where each 
    - WordPress entrypoint waits for MariaDB, downloads WordPress, creates configuration, and installs the site
 
 2. **Data Persistence**:
-   - Database files stored in `/home/ailton/data/mariadb`
-   - WordPress files stored in `/home/ailton/data/wordpress`
+   - Database files stored in `/home/ailbezer/data/mariadb`
+   - WordPress files stored in `/home/ailbezer/data/wordpress`
    - Both persist across container restarts and system reboots
 
 3. **Network Communication**:
@@ -246,12 +246,6 @@ AI was utilized for the following aspects of this project:
    - Network configuration and connectivity patterns
    - Volume setup with bind mounts
    - Environment variable handling
-
-5. **Architecture Planning**: Assisted in deciding:
-   - Container separation strategy
-   - Network topology (bridge networks, port mapping)
-   - Storage strategy (volumes vs bind mounts)
-   - Secret management approach
 
 The AI contributions focused on ensuring production-like best practices while maintaining simplicity and educational clarity appropriate for a learning project.
 
