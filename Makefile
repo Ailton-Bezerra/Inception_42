@@ -10,7 +10,7 @@ DIRS = /home/ailbezer/data/mariadb /home/ailbezer/data/wordpress
 
 dirs:
 	@echo "$(YELLOW)Creating required directories...$(NC)"
-	@sudo mkdir -p $(DIRS)
+	@mkdir -p $(DIRS)
 	@echo "$(GREEN)✓ Directories ready$(NC)"
 
 up: dirs
@@ -20,7 +20,8 @@ up: dirs
 
 build: dirs
 	@echo "$(YELLOW)Building and starting containers...$(NC)"
-	@$(COMPOSE) up -d --build
+	@$(COMPOSE) build --no-cache
+	@$(COMPOSE) up -d
 	@echo "$(GREEN)✓ Build complete$(NC)"
 
 down:
