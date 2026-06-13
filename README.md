@@ -1,5 +1,3 @@
-# Inception
-
 *This project has been created as part of the 42 curriculum by ailbezer.*
 
 ## Description
@@ -231,8 +229,6 @@ AI was utilized for the following aspects of this project:
 1. **Documentation and README Creation**: Helped structure and write comprehensive documentation covering architectural decisions, comparisons between different approaches, and troubleshooting guides.
 
 2. **Docker Configuration Optimization**: Assisted in optimizing Dockerfiles by suggesting best practices such as:
-   - Multi-stage builds if needed
-   - Layer caching optimization
    - Alpine Linux usage for minimal image sizes
 
 3. **Entrypoint Script Development**: Helped design robust shell scripts with:
@@ -248,10 +244,6 @@ AI was utilized for the following aspects of this project:
    - Environment variable handling
 
 The AI contributions focused on ensuring production-like best practices while maintaining simplicity and educational clarity appropriate for a learning project.
-
-## License
-
-This project is part of the 42 school curriculum and is provided under the terms specified in the LICENSE file.
 
 ## Author
 

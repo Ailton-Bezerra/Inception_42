@@ -47,7 +47,6 @@ volumes:
       type: none
       o: bind
       device: /home/ailbezer/data/mariadb
-
   wordpress_data:
     driver_opts:
       type: none

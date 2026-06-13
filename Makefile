@@ -1,4 +1,4 @@
-.PHONY: up down build fclean dirs logs status shell server help
+.PHONY: up down build fclean logs status shell server help
 
 RED    = \033[0;31m
 GREEN  = \033[0;32m
@@ -6,19 +6,13 @@ YELLOW = \033[0;33m
 NC     = \033[0m
 
 COMPOSE = cd srcs && docker compose
-DIRS = /home/ailbezer/data/mariadb /home/ailbezer/data/wordpress
 
-dirs:
-	@echo "$(YELLOW)Creating required directories...$(NC)"
-	@mkdir -p $(DIRS)
-	@echo "$(GREEN)✓ Directories ready$(NC)"
-
-up: dirs
+up:
 	@echo "$(YELLOW)Starting Docker Compose...$(NC)"
 	@$(COMPOSE) up -d
 	@echo "$(GREEN)✓ Containers are up$(NC)"
 
-build: dirs
+build:
 	@echo "$(YELLOW)Building and starting containers...$(NC)"
 	@$(COMPOSE) build --no-cache
 	@$(COMPOSE) up -d
@@ -52,7 +46,6 @@ help:
 	@echo "  $(YELLOW)make build$(NC)   - Build and start containers"
 	@echo "  $(YELLOW)make down$(NC)    - Stop containers"
 	@echo "  $(YELLOW)make fclean$(NC)  - Remove containers, volumes, images"
-	@echo "  $(YELLOW)make dirs$(NC)    - Create required directories"
 	@echo "  $(YELLOW)make logs$(NC)    - Show logs"
 	@echo "  $(YELLOW)make status$(NC)  - Show container status"
 	@echo "  $(YELLOW)make shell$(NC)   - Access WordPress container"
