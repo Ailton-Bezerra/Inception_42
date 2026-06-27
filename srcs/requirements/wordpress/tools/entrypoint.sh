@@ -20,7 +20,7 @@ echo ">> MariaDB connected successfully!"
 
 if [ ! -f "$WP_PATH/wp-settings.php" ]; then
     echo ">> downloading WordPress..."
-    wp core download \
+    php -d memory_limit=512M /usr/local/bin/wp core download \
         --path="$WP_PATH" \
         --allow-root
 fi

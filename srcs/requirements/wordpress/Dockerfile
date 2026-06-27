@@ -24,7 +24,9 @@ RUN curl -L -o /usr/local/bin/wp \
     chmod +x /usr/local/bin/wp
 
 RUN sed -i 's|listen = 127.0.0.1:9000|listen = 0.0.0.0:9000|' \
-    /etc/php83/php-fpm.d/www.conf
+    /etc/php83/php-fpm.d/www.conf && \
+    sed -i 's|memory_limit = 128M|memory_limit = 512M|' \
+    /etc/php83/php.ini
 
 RUN mkdir -p /var/www/wordpress /run/php && \
     chown -R nobody:nobody /var/www/wordpress

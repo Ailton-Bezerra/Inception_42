@@ -8,7 +8,7 @@ if [ ! -d "$MYSQL_DIR/mysql" ]; then
 
     mariadb-install-db --user=mysql --datadir="$MYSQL_DIR" > /dev/null 2>&1
 
-    mysqld --user=mysql --bootstrap << EOF
+    mysqld --user=mysql --bootstrap --skip-grant-tables=0 << EOF
 USE mysql;
 
 ALTER USER 'root'@'localhost' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}';
